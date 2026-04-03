@@ -1,3 +1,11 @@
+---
+title: FinanceBackend
+emoji: 💰
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
 # Finance Data Processing and Access Control Backend
 
 A backend system for managing financial records with role-based access control. Built with FastAPI and SQLite.
