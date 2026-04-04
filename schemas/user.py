@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, field_validator
 from typing import Optional
 from datetime import datetime
 
@@ -8,7 +8,7 @@ class UserCreate(BaseModel):
     password: str
     role: str = "viewer"
 
-    @validator("password")
+    @field_validator("password")
     def password_must_be_valid(cls, v):
         if not v or not v.strip():
             raise ValueError("Password cannot be empty or whitespace only")
@@ -16,7 +16,7 @@ class UserCreate(BaseModel):
             raise ValueError("Password must be at least 6 characters")
         return v
 
-    @validator("name")
+    @field_validator("name")
     def name_must_be_valid(cls, v):
         if not v or not v.strip():
             raise ValueError("Name cannot be empty or whitespace only")
