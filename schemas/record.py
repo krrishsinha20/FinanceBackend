@@ -1,4 +1,4 @@
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from typing import Optional
 from datetime import datetime
 
@@ -9,13 +9,13 @@ class RecordCreate(BaseModel):
     date: datetime
     notes: Optional[str] = None
 
-    @validator("type")
+    @field_validator("type")
     def type_must_be_valid(cls, v):
         if v not in ["income", "expense"]:
             raise ValueError("type must be 'income' or 'expense'")
         return v
 
-    @validator("amount")
+    @field_validator("amount")
     def amount_must_be_positive(cls, v):
         if v <= 0:
             raise ValueError("amount must be greater than 0")
