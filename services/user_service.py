@@ -15,7 +15,13 @@ def get_user_by_id(db: Session, user_id: int):
         )
     return user
 
-def update_user(db: Session, user_id: int, user_data: UserUpdate):
+def update_user(db: Session, user_id: int, user_data: UserUpdate, current_user_id: int):
+    if user_id == current_user_id and user_data.is_active == False:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="You cannot deactivate your own account"
+        )
+    
     user = get_user_by_id(db, user_id)
 
     if user_data.role and user_data.role not in ["viewer", "analyst", "admin"]:
@@ -35,8 +41,13 @@ def update_user(db: Session, user_id: int, user_data: UserUpdate):
     db.refresh(user)
     return user
 
-def delete_user(db: Session, user_id: int):
+def delete_user(db: Session, user_id: int, current_user_id: int):
+    if user_id == current_user_id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="You cannot deactivate your own account"
+        )
     user = get_user_by_id(db, user_id)
-    user.is_active = False  # soft delete
+    user.is_active = False
     db.commit()
     return {"message": "User deactivated successfully"}

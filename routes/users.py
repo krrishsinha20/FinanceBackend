@@ -39,7 +39,7 @@ def update(
     current_user: User = Depends(require_admin)
 ):
     """Update user role or status - Admin only"""
-    return update_user(db, user_id, user_data)
+    return update_user(db, user_id, user_data, current_user.id)
 
 @router.delete("/{user_id}")
 def delete(
@@ -48,4 +48,4 @@ def delete(
     current_user: User = Depends(require_admin)
 ):
     """Deactivate user - Admin only"""
-    return delete_user(db, user_id)
+    return delete_user(db, user_id, current_user.id)

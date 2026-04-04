@@ -39,7 +39,14 @@ def get_all_records(
     if end_date:
         query = query.filter(FinancialRecord.date <= end_date)
 
-    return query.order_by(FinancialRecord.date.desc()).all()
+    records = query.order_by(FinancialRecord.date.desc()).all()
+
+    if not records:
+        raise HTTPException(
+            status_code=404,
+            detail="No records found for the given filters"
+        )
+    return records
 
 def get_record_by_id(db: Session, record_id: int):
     record = db.query(FinancialRecord).filter(
