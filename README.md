@@ -1,11 +1,3 @@
----
-title: FinanceBackend
-emoji: 💰
-colorFrom: blue
-colorTo: green
-sdk: docker
-pinned: false
----
 # Finance Data Processing and Access Control Backend
 
 A backend system for managing financial records with role-based access control. Built with FastAPI and SQLite.
@@ -60,10 +52,8 @@ finance-backend/
 
 ## Deployed API
 
-- **Base URL:** `https://your-deployed-url.com`
-- **Swagger UI:** `https://your-deployed-url.com/docs`
-
-> Replace the above links once deployed.
+- **Base URL:** `https://krrishsinha-financebackend.hf.space`
+- **Swagger UI For Testing The Backend:** `https://krrishsinha-financebackend.hf.space/docs`
 
 ---
 
@@ -71,8 +61,8 @@ finance-backend/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/finance-backend.git
-cd finance-backend
+git clone https://github.com/krrishsinha20/FinanceBackend.git
+cd FinanceBackend
 ```
 
 ### 2. Create virtual environment
@@ -217,5 +207,3 @@ Switch between users in Authorize and verify access control behavior.
 ## Author
 
 **Krrish Sinha**
-Backend Developer Intern Assignment
-Zorvyn FinTech Pvt. Ltd.
