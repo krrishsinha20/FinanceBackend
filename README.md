@@ -1,3 +1,13 @@
+<!-- HuggingFace Spaces Configuration — ignore if viewing on GitHub -->
+---
+title: FinanceBackend
+emoji: 💰
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # Finance Data Processing and Access Control Backend
 
 A backend system for managing financial records with role-based access control. Built with FastAPI and SQLite.
@@ -50,7 +60,7 @@ finance-backend/
 
 ---
 
-## Deployed API
+## Deployed
 
 - **Base URL:** `https://krrishsinha-financebackend.hf.space`
 - **Swagger UI For Testing The Backend:** `https://krrishsinha-financebackend.hf.space/docs`
@@ -58,6 +68,8 @@ finance-backend/
 ---
 
 ## Setup Instructions
+
+In the terminal
 
 ### 1. Clone the repository
 ```bash
@@ -94,6 +106,8 @@ uvicorn main:app --reload
 
 ### 6. Open Swagger UI
 ```
+After this you will get a url in the terminal running on local host
+Put that url in the browser and then on the local host url just put /docs at the end of url to see the backend endpoints and hencefurther for testing and using them
 http://localhost:8000/docs
 ```
 
@@ -151,7 +165,9 @@ Switch between users in Authorize and verify access control behavior.
 | GET | `/users/me` | Get current user info | All |
 | GET | `/users/{id}` | Get user by ID | Admin |
 | PUT | `/users/{id}` | Update user role or status | Admin |
-| DELETE | `/users/{id}` | Deactivate user | Admin |
+| DELETE | `/users/{id}` | Deactivate user (soft delete) | Admin |
+
+> Note: type field in records must be `income` or `expense`
 
 ### Financial Records
 | Method | Endpoint | Description | Access |
@@ -179,7 +195,7 @@ Switch between users in Authorize and verify access control behavior.
 /records/?type=income
 /records/?type=expense
 /records/?category=salaries
-/records/?start_date=2026-01-01T00:00:00&end_date=2026-04-01T00:00:00
+/records/?start_date=2026-01-01&end_date=2026-04-01
 ```
 
 ---
@@ -190,7 +206,7 @@ Switch between users in Authorize and verify access control behavior.
 - Only admins can create, update, or delete financial records
 - Soft delete is used for both users and records — data is never permanently removed
 - JWT tokens expire after 24 hours
-- Password must be 72 characters or less (bcrypt limitation)
+- Password must be between 6 and 72 characters
 - SQLite is used for simplicity as this is an assessment project
 
 ---
@@ -207,3 +223,5 @@ Switch between users in Authorize and verify access control behavior.
 ## Author
 
 **Krrish Sinha**
+Backend Developer Intern Assignment
+Zorvyn FinTech Pvt. Ltd.
