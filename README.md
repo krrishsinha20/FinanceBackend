@@ -1,4 +1,3 @@
-<!-- HuggingFace Spaces Configuration — ignore if viewing on GitHub -->
 ---
 title: FinanceBackend
 emoji: 💰
@@ -7,6 +6,8 @@ colorTo: green
 sdk: docker
 pinned: false
 ---
+
+**Above credentials are for huggingface deployment**
 
 # Finance Data Processing and Access Control Backend
 

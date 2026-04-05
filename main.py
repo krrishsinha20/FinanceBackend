@@ -19,7 +19,13 @@ app = FastAPI(
     1. Register a user via /auth/register
     2. Login via Authorise button in the right with your **username as your gmail** and password while ignoring and keeping the client_id and client_secret as empty as of now 
     3. Access endpoints based on your role
-    """,
+    
+    Note: Every time you want to test with a different user, click Logout in the Authorize popup, then login again with the new user credentials. 
+    
+    
+    """
+    
+    ,
     version="1.0.0"
 )
 
